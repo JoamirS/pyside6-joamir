@@ -51,6 +51,9 @@ first_action = first_menu.addAction('Primeira ação')
 # action
 first_action.triggered.connect(lambda: slot_example(status_bar_new_message=status_bar))
 
+second_action = first_menu.addAction('Segunda ação')
+
+
 window.show()
 # Loop of application
 app_one.exec()
