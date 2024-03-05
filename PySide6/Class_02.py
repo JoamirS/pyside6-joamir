@@ -24,6 +24,7 @@ button_with_text_03.setStyleSheet('font-size: 25px; color: green')
 
 
 central_widget = QWidget()
+window.setWindowTitle('Título Joamir')
 window.setCentralWidget(central_widget)
 
 # Create layout
@@ -39,6 +40,16 @@ def slot_example(status_bar_new_message):
     status_bar_new_message.showMessage('Mudando o status')
 
 
+def another_slot(checked):
+    print('Está marcado?', checked)
+
+
+def third_slot(action):
+    def inner():
+        another_slot(action.isChecked())
+    return inner
+
+
 # statusBar
 status_bar = window.statusBar()
 status_bar.showMessage('Mostrar mensagem na barra')
@@ -47,11 +58,16 @@ status_bar.showMessage('Mostrar mensagem na barra')
 # MenuBar
 menu = window.menuBar()
 first_menu = menu.addMenu('Menu')
-first_action = first_menu.addAction('Primeira ação')
+
+
 # action
+first_action = first_menu.addAction('Primeira ação')
 first_action.triggered.connect(lambda: slot_example(status_bar_new_message=status_bar))
 
 second_action = first_menu.addAction('Segunda ação')
+second_action.setCheckable(True)
+second_action.toggled.connect(another_slot)
+second_action.hovered.connect(third_slot(second_action))
 
 
 window.show()
