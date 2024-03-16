@@ -27,7 +27,7 @@ class MyWindow(QMainWindow):
         super().__init__(parent)
 
         # Button
-        super().__init__(parent)
+
         self.button_with_text_01 = QPushButton('Texto do botão 1')
         self.button_with_text_01.setStyleSheet('font-size: 30px; color: blue;')
 
@@ -80,7 +80,7 @@ class MyWindow(QMainWindow):
 
 
 if __name__ == '__main__':
-    window = MyWindow()
+    window = MyWindow(None)
     window.show()
     # Loop of application
     app_one.exec()
