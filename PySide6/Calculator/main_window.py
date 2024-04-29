@@ -1,5 +1,5 @@
 # Project
-from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget
+from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget, QLineEdit, QTextEdit
 
 
 class MainWindow(QMainWindow):
